@@ -159,7 +159,7 @@ exports.sendOTP=async (req,res)=>{
         const newOTP=await OTP.findOneAndUpdate(emailName,{OTP:OTPcode},{new:true});
         // send email
         let SendEmail = await SendEmailUtility(email,"Your PIN Code is= "+newOTP.OTP,"Task Manager PIN Verification")
-            res.status(200).json({status: "success", OTP:newOTP.OTP,email:newOTP.email})
+            res.status(200).json({ OTP:newOTP.OTP,email:newOTP.email})
            
      
     }
